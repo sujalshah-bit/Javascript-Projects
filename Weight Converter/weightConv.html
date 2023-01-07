@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Conveter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;    
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(59, 56, 56);
+        }
+        #input-box,#poundOp,#ouncesOp,#gramsOp{
+            padding: 5px;
+            font-size: 1.3rem;
+            border: none;
+            background-color: white;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input id="input-box" placeholder="Kg"/>
+        <div id="poundOp">pound</div>
+        <div id="ouncesOp">Ounces</div>
+        <div id="gramsOp">grams</div>
+    </div>
+</body>
+<script>
+    document.getElementById('input-box').addEventListener('keyup',function(e){
+        let inpWeig = e.target.value;
+        let floorPound = Math.floor(inpWeig);
+        document.getElementById('poundOp').innerHTML = `${Math.floor((inpWeig*2.2))} Pound`;
+        document.getElementById('ouncesOp').innerHTML = `${Math.floor((inpWeig/0.0283495231))} Ounces`;
+        document.getElementById('gramsOp').innerHTML = `${inpWeig*1000} grams`;
+    })
+</script>
+</html>
